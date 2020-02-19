@@ -12,11 +12,11 @@ class EventsSeeder extends Seeder
     public function run()
     {
         $events = [
-            'speed-coding', 'sentence', 'projet', ''
+            'speed-coding', 'sentence', 'projet'
         ];
-        for($i=0; $i<5; $i++):
-            DB::table('users')->insert([
-                'name' => Str::random(5),
+        for($i=0; $i<sizeof($events); $i++):
+            DB::table('events')->insert([
+                'name' => $events[$i],
                 
             ]);
         endfor;
