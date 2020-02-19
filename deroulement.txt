@@ -1,0 +1,30 @@
+création d'une table products
+    php artisan make:migration products
+
+création d'un model Products
+    php artisan make:model Products
+
+Création du seed ProductSeeder
+    php artisan make:seed ProductSeeder
+
+création du controller ProductController
+    php artisan make:controller ProductController
+
+création des routes simple
+    api.php : 
+        Route::get('/products', 'ProductController@getAll);
+        Route::get('/product/{id}', 'ProductController@getById);
+        Route::get('/product/', 'ProductController@createProduct);
+        Route::get('/product/{id}/update', 'ProductController@updateProduct);
+        Route::get('/product/{id}/delete', 'ProductController@deleteProduct);
+
+Etablissement des relations entre model ('jointure')
+
+-Dans le model User.php :
+    function products(){
+        return $this->hasMany('App\Products');
+    }
+-Dans le model Products.php :
+    function users{
+        return $this->belongsTo('App\User');
+    }
