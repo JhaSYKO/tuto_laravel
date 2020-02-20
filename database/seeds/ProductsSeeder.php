@@ -12,11 +12,19 @@ class ProductsSeeder extends Seeder
     public function run()
     {
         $products = [
-            'P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7', 'P8',
+            ['P1', '1'],
+            ['P2', '4'],
+            ['P3', '2'],
+            ['P4', '3'],
+            ['P5', '1'],
+            ['P6', '3'],
+            ['P7', '3'],
+            ['P8', '2'],
         ];
         for($i=0; $i<sizeof($products); $i++):
             DB::table('products')->insert([
-                'name' => $products[$i],
+                'name' => $products[$i][0],
+                'user_id' => $products[$i][1],
             ]);
         endfor;
     }
